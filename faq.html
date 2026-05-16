@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roots & Revelry | Frequently Asked Questions</title>
+  <meta name="description" content="Find answers to common questions about Roots & Revelry's tree services, landscaping, care advice, and community projects." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green-dark: #2d4a1e;
+      --green-mid: #4a7c2f;
+      --green-accent: #8bc34a;
+      --olive: #6b7c3a;
+      --gold: #d4a827;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --light-bg: #f5f5f0;
+      --card-bg: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-muted: #666;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── NAVBAR ─────────────────────────────────────── */
+    .navbar {
+      background: var(--black);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.3rem;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+      font-weight: 700 !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.82rem !important;
+    }
+
+    .nav-cta:hover { background: #c49a20 !important; }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 480px;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLm7rMKCMzyOQ1OTycomls8VVtl_5lwSVbw&s') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      flex: 1;
+      color: var(--white);
+      max-width: 480px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.6rem;
+      line-height: 1.65;
+      max-width: 380px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 700;
+      padding: 0.75rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+
+    .hero-btn:hover { background: #c49a20; color: var(--black); }
+
+    /* Hero Form Card */
+    .hero-form-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      padding: 2rem;
+      width: 300px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-left: auto;
+    }
+
+    .hero-form-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: var(--black);
+    }
+
+    .hero-form-card input,
+    .hero-form-card textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-form-card input:focus,
+    .hero-form-card textarea:focus {
+      border-color: var(--green-mid);
+    }
+
+    .hero-form-card textarea { height: 80px; resize: none; }
+
+    .hero-form-card button {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 0.7rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .hero-form-card button:hover { background: #c49a20; }
+
+    /* ── SERVICE CARDS SECTION ──────────────────────── */
+    .services-section {
+      padding: 5rem 5%;
+      background: var(--light-bg);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .service-col h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.9rem;
+      color: var(--black);
+    }
+
+    .service-col p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .service-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--green-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .service-card-body h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card-body p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Dark card column */
+    .service-col.dark {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 2rem;
+      color: var(--white);
+    }
+
+    .service-col.dark h2 { color: var(--white); }
+    .service-col.dark p { color: rgba(255,255,255,0.7); }
+    .service-col.dark .service-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .service-col.dark .service-card-body h4 { color: var(--white); }
+    .service-col.dark .service-card-body p { color: rgba(255,255,255,0.6); }
+
+    /* ── FAQ ACCORDION SECTION ─────────────────────── */
+    .faq-section {
+      padding: 5rem 5%;
+      background: var(--white);
+    }
+
+    .faq-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .faq-header h2 {
+      font-size: 2rem;
+      flex: 0 0 280px;
+    }
+
+    .faq-header p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-top: 0.4rem;
+    }
+
+    .faq-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .faq-image {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 400px;
+    }
+
+    .faq-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0.8rem; }
+
+    details.faq-item {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    details.faq-item[open] {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    details.faq-item summary {
+      padding: 1rem 1.2rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.faq-item summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: var(--green-mid);
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    details.faq-item[open] summary::after {
+      content: '−';
+    }
+
+    details.faq-item summary::-webkit-details-marker { display: none; }
+
+    details.faq-item p {
+      padding: 0 1.2rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT / CTA SECTION ──────────────────────── */
+    .contact-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 5rem 5%;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-section .sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 3rem;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .contact-card:hover { background: rgba(255,255,255,0.1); }
+
+    .contact-card i {
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 3.5rem 5% 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-col h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .footer-col p,
+    .footer-col a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      line-height: 2;
+      display: block;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .social-links a:hover { background: var(--gold); color: var(--black); }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .section-grid { grid-template-columns: 1fr; }
+      .faq-columns { grid-template-columns: 1fr; }
+      .faq-image { height: 240px; }
+      .faq-header { flex-direction: column; gap: 1rem; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero { height: auto; padding: 3rem 5%; flex-direction: column; gap: 2rem; }
+      .hero-form-card { margin: 0; width: 100%; }
+      .hero-text h1 { font-size: 2rem; }
+      .nav-links { gap: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ────────────────────────────────────── -->
+  <header class="navbar">
+    <a href="home.html" class="logo">Roots & Revelry</a>
+    <nav class="nav-links">
+      <a href="index.html">Welcome</a>
+      <a href="home.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="care-guides.html">Care Guides</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="by-categories.html">Category</a>
+      <a href="faq.html" class="active nav-cta">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Your Landscaping<br>Dreams</h1>
+      <p>
+        Get answers to all your questions about tree services, community initiatives,
+        and expert care guides — everything you need to grow with confidence.
+      </p>
+      <a href="contact.html" class="hero-btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- ── SERVICE CARDS ─────────────────────────────── -->
+  <section class="services-section">
+    <div class="section-grid">
+
+      <!-- Dark column -->
+      <div class="service-col dark">
+        <h2>Your Landscaping Dreams</h2>
+        <p>
+          We bring sustainable landscaping and expert tree care together so your
+          green spaces flourish for generations to come.
+        </p>
+        <div class="service-card">
+          <div class="service-card-icon"><i class="fas fa-images"></i></div>
+          <div class="service-card-body">
+            <h4>Creative Image Gallery</h4>
+            <p>Browse our portfolio of completed community landscapes and planting projects.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Cards column -->
+      <div class="service-col">
+        <h2>Service Cards</h2>
+        <p>
+          From single-tree consultations to full eco-landscaping designs, we cover
+          everything your green space needs.
+        </p>
+        <div class="service-card">
+          <div class="service-card-icon"><i class="fas fa-seedling"></i></div>
+          <div class="service-card-body">
+            <h4>Responsive Image Gallery</h4>
+            <p>High-quality visuals of every service we offer — explore and be inspired.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials column -->
+      <div class="service-col">
+        <h2>Testimonials</h2>
+        <p>
+          Real stories from real clients — see how Roots & Revelry has transformed
+          homes, schools, and community spaces.
+        </p>
+        <div class="service-card">
+          <div class="service-card-icon"><i class="fas fa-star"></i></div>
+          <div class="service-card-body">
+            <h4>Testimonials Care Guide</h4>
+            <p>Learn what our community says about our tree care and landscaping support.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FAQ ACCORDION ─────────────────────────────── -->
+  <section class="faq-section">
+    <div class="faq-header">
+      <h2>Testimonials from<br>Your Minds</h2>
+      <p>
+        We've compiled the most common questions our clients ask about our services,
+        community involvement, and expert tree care advice. If you don't find your
+        answer here, reach out directly and we'll be happy to help.
+      </p>
+    </div>
+
+    <div class="faq-columns">
+
+      <!-- FAQ List -->
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What services does Roots and Revelry offer?</summary>
+          <p>
+            Roots and Revelry offers sustainable tree supply, eco-friendly landscaping,
+            tree care guidance, environmental education, and community planting initiatives.
+            We help individuals, families, schools, and organizations create greener,
+            healthier spaces through expert support and quality plant care.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is a Tree Preservation Order (TPO)?</summary>
+          <p>
+            A TPO protects trees that provide significant amenity benefit to an area.
+            It is a criminal offence to cut down or prune these trees without written
+            permission from the Local Planning Authority.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you provide tree care advice?</summary>
+          <p>
+            Absolutely. We provide practical care guides and expert advice on planting,
+            watering, pruning, soil preparation, and long-term tree health. Our goal is
+            to help every customer grow healthy, thriving trees with confidence.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can schools or organizations partner with you?</summary>
+          <p>
+            Yes, we actively welcome partnerships with schools, community groups,
+            environmental organizations, and businesses. We collaborate on tree planting
+            events, educational workshops, sustainability projects, and awareness campaigns.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you offer landscaping services?</summary>
+          <p>
+            Yes, we provide eco-friendly landscaping support focused on sustainable design,
+            tree selection, planting layouts, and green space enhancement for homes,
+            schools, and community areas.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How can I get involved in community projects?</summary>
+          <p>
+            You can get involved by joining our tree planting events, volunteering in
+            community greening projects, partnering with us, or supporting our
+            environmental initiatives through collaboration and outreach.
+          </p>
+        </details>
+      </div>
+
+      <!-- Side image -->
+      <div class="faq-image">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2W0Fh4tS7Funjc8Q5tQA6s8as3ti9MEzQFw&s" alt=" nature"/>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT SECTION ───────────────────────────── -->
+  <section class="contact-section">
+    <p class="sub">CONNECT WITH US</p>
+    <h2>Contact Us</h2>
+    <p class="sub">Every tree you plant today becomes tomorrow's legacy.</p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <i class="fas fa-phone-alt"></i>
+        <h4>Customer Hotline</h4>
+        <p>Available Mon–Sat, 8am–6pm.<br>+267 77 140 338</p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Find Us Here</h4>
+        <p>123 Green Avenue<br>Gaborone, Botswana</p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-comments"></i>
+        <h4>Customer Care</h4>
+        <p>Email us anytime and we'll respond within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <p>hello@rootsandrevelry.com</p>
+        <p>+267 77 140 338</p>
+        <p>123 Green Avenue</p>
+        <p>Gaborone, Botswana</p>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">Events & News</a>
+      </div>
+      <div class="footer-col">
+        <h5>Guides</h5>
+        <a href="care-guides.html">Tree Planting</a>
+        <a href="care-guides.html">Care & Pruning</a>
+        <a href="care-guides.html">Flower & Ferns</a>
+        <a href="care-guides.html">Planting Materials</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Roots & Revelry | All Rights Reserved</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" aria-label="X (Twitter)">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
+          <i class="fa-brands fa-pinterest-p"></i>
+        </a>
+        <a href="https://wa.me/26777140338" target="_blank" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
