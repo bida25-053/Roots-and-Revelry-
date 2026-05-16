@@ -1,0 +1,504 @@
+/*===========================================
+   Roots & Revelry - Main Stylesheet
+   Nature-Inspired Modern Nursery Brand
+===========================================*/
+
+/* ----- CSS Variables (Nature Palette) ----- */
+:root {
+    --deep-forest: #1a3a2b;
+    --sage-green: #6b8c5c;
+    --moss: #8aa87d;
+    --cream: #f9f6ef;
+    --driftwood: #d4c5b0;
+    --charcoal: #2c2c2c;
+    --soft-white: #ffffff;
+    --warm-gray: #f5f3ef;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ----- Reset & Base Styles ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--soft-white);
+    color: var(--charcoal);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----- Typography ----- */
+h1, h2, h3, h4, .logo {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--deep-forest);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--deep-forest);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--deep-forest);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #5a6e4a;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* ----- Buttons & Links ----- */
+.btn-primary, .btn-secondary, .btn-outline {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--deep-forest);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: #0e2a1e;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--sage-green);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a7a4a;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1.5px solid var(--deep-forest);
+    color: var(--deep-forest);
+}
+
+.btn-outline:hover {
+    background-color: var(--deep-forest);
+    color: white;
+}
+
+/* ----- Header / Navigation ----- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    background-color: var(--soft-white);
+    border-bottom: 1px solid rgba(107, 140, 92, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--deep-forest);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--sage-green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: var(--sage-green);
+}
+
+.icon-search {
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* ----- Hero Section ----- */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, #faf8f2 0%, #f1efe7 100%);
+    gap: 3rem;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-content .tagline {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--sage-green);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    color: #4a4a4a;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--driftwood);
+    border-radius: 32px;
+    height: 400px;
+    background-image: url('https://placehold.co/600x400/e0d5c0/6b8c5c?text=Hero+Tree+Image');
+    background-size: cover;
+    background-position: center;
+    border-radius: 32px;
+    box-shadow: var(--shadow-md);
+}
+header {
+  background-image: url(url../../Pictures/photo-1542273917363-3b1817f69a2d.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* ----- Featured Categories Section ----- */
+.featured-categories {
+    padding: 5rem 5%;
+    text-align: center;
+    background-color: var(--soft-white);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.category-card {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    transition: var(--transition);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    background-color: white;
+}
+
+.category-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+.category-card p {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    line-height: 1.5;
+}
+
+/* ----- Info / Welcome Section (from home 3) ----- */
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 5%;
+    background-color: var(--warm-gray);
+}
+
+.info-text {
+    flex: 1;
+}
+
+.info-text h2 {
+    margin-bottom: 1rem;
+}
+
+.info-text p {
+    margin-bottom: 1.5rem;
+    color: #3d3d3d;
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #2d3e2b;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.github-link:hover {
+    background-color: var(--deep-forest);
+    transform: translateY(-2px);
+}
+
+.info-image {
+    flex: 1;
+    background-color: var(--moss);
+    height: 320px;
+    border-radius: 32px;
+    background-image: url('https://placehold.co/600x400/8aa87d/ffffff?text=Nursery+Scene');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ----- Footer / Newsletter (Join Our Canopy) ----- */
+.site-footer {
+    background-color: var(--deep-forest);
+    color: #e0e7dc;
+    padding: 3rem 5% 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand .footer-logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #cbdcc2;
+}
+
+.footer-links h4, .footer-newsletter h4 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #cbdcc2;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 4px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border-radius: 40px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-family: inherit;
+}
+
+.newsletter-form input::placeholder {
+    color: #bdd0b3;
+}
+
+.newsletter-form button {
+    background-color: var(--sage-green);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+    background-color: var(--moss);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: #b0c5a4;
+}
+
+/* ----- Shop All Button / Call to Action (from home 3) ----- */
+.shop-cta {
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+/* ----- Responsive Design ----- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    
+    .hero-content p {
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        width: 100%;
+        height: 280px;
+    }
+    
+    .categories-grid {
+        gap: 1rem;
+    }
+    
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-grid {
+        gap: 2rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        padding: 0.8rem;
+    }
+}
+
+/* ----- Utility Classes ----- */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 2rem;
+}
