@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roots &amp; Revelry | Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Roots & Revelry - Premium trees, greener spaces, and sustainable living." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --deep:    #1a2e1a;
+      --forest:  #243b24;
+      --sage:    #5a7a4a;
+      --leaf:    #8aaf6a;
+      --cream:   #f0ede6;
+      --white:   #ffffff;
+      --muted:   rgba(240,237,230,0.52);
+      --ff-d:    'Cormorant Garamond', Georgia, serif;
+      --ff-b:    'Outfit', sans-serif;
+      --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--ff-b);
+      background: var(--deep);
+      overflow: hidden;
+    }
+
+    /* ══════════════════════════
+       SPLIT LAYOUT
+    ══════════════════════════ */
+    .page-wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      height: 100vh;
+    }
+
+    /* ─── LEFT DARK PANEL ─── */
+    .left-panel {
+      background: var(--deep);
+      display: flex; flex-direction: column;
+      padding: 38px 36px 36px 42px;
+      position: relative; z-index: 10;
+    }
+
+    /* Faint dot texture */
+    .left-panel::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    /* Right border glow */
+    .left-panel::after {
+      content: '';
+      position: absolute; top: 10%; bottom: 10%; right: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(138,175,106,0.3) 50%, transparent);
+    }
+
+    /* Brand */
+    .brand {
+      display: flex; align-items: center; gap: 11px;
+      margin-bottom: 56px; text-decoration: none;
+      animation: fadeUp 0.8s var(--ease) 0.1s both;
+    }
+    .brand-emblem {
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(240,237,230,0.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+      background: rgba(255,255,255,0.04);
+    }
+    .brand-name {
+      font-family: var(--ff-b); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream);
+      display: block;
+    }
+    .brand-sub {
+      font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-top: 2px;
+    }
+
+    /* Quote section */
+    .left-quote {
+      flex: 1; display: flex; flex-direction: column;
+      animation: fadeUp 0.8s var(--ease) 0.25s both;
+    }
+    .opening-mark {
+      font-family: var(--ff-d); font-size: 6rem; line-height: 0.55;
+      color: rgba(255,255,255,0.1); margin-bottom: 10px; display: block;
+      user-select: none;
+    }
+    .left-quote h1 {
+      font-family: var(--ff-d); font-style: italic; font-weight: 300;
+      font-size: clamp(1.55rem, 2vw, 2rem);
+      color: var(--cream); line-height: 1.28; margin-bottom: 20px;
+    }
+    .left-quote h1 em {
+      font-style: normal; font-weight: 600;
+      color: var(--white);
+    }
+    .left-body {
+      font-size: 0.8rem; font-weight: 300; line-height: 1.82;
+      color: var(--muted); margin-bottom: 30px;
+    }
+
+    /* Search */
+    .search-wrap { position: relative; margin-bottom: 24px; }
+    .search-input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.13);
+      border-radius: 40px; padding: 11px 18px 11px 42px;
+      font-family: var(--ff-b); font-size: 0.8rem; font-weight: 300;
+      color: var(--cream); outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      letter-spacing: 0.06em;
+    }
+    .search-input::placeholder { color: rgba(240,237,230,0.32); }
+    .search-input:focus {
+      border-color: rgba(138,175,106,0.45);
+      background: rgba(255,255,255,0.09);
+    }
+    .search-icon {
+      position: absolute; left: 15px; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(240,237,230,0.35); font-size: 0.76rem;
+    }
+
+    .left-tagline {
+      font-size: 0.74rem; font-weight: 300; line-height: 1.75;
+      color: rgba(240,237,230,0.28); letter-spacing: 0.04em;
+      animation: fadeUp 0.8s var(--ease) 0.5s both;
+    }
+
+    /* ─── RIGHT PHOTO PANEL ─── */
+    .right-panel {
+      position: relative; overflow: hidden;
+    }
+
+    .forest-bg {
+      position: absolute; inset: 0;
+      background:
+        url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&auto=format&fit=crop')
+        center / cover no-repeat;
+      transition: background-image 0s;
+    }
+    /* Dark overlay */
+    .forest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(8,18,8,0.52) 0%,
+        rgba(8,18,8,0.18) 45%,
+        rgba(8,18,8,0.30) 100%
+      );
+      z-index: 1;
+    }
+
+    /* ── Navbar floats over photo ── */
+    .top-nav {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: 20;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding: 28px 40px;
+      gap: 4px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a {
+      font-family: var(--ff-b); font-size: 0.74rem; font-weight: 400;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: rgba(255,255,255,0.78); padding: 6px 14px; border-radius: 3px;
+      text-decoration: none; transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.18); margin: 0 6px; }
+    .btn-login {
+      font-family: var(--ff-b); font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--white); background: var(--sage);
+      padding: 9px 22px; border-radius: 30px;
+      text-decoration: none; transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .btn-login:hover { background: var(--leaf); color: var(--deep); }
+    .btn-signup {
+      font-family: var(--ff-b); font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--deep); background: var(--white);
+      padding: 9px 22px; border-radius: 30px;
+      text-decoration: none; transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .btn-signup:hover { background: var(--cream); }
+    .menu-btn-r {
+      display: none; background: none;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: white; width: 36px; height: 36px;
+      border-radius: 5px; cursor: pointer; font-size: 1rem;
+    }
+
+    /* ── Hero content ── */
+    .right-content {
+      position: absolute; inset: 0; z-index: 5;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 100px 52px 90px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-b); font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 12px;
+      animation: fadeUp 0.9s var(--ease) 0.35s both;
+    }
+
+    .hero-title {
+      font-family: var(--ff-d); font-weight: 300;
+      font-size: clamp(4.5rem, 8vw, 8rem);
+      letter-spacing: -0.01em; line-height: 0.85;
+      color: var(--white); text-transform: uppercase;
+      text-shadow: 0 6px 48px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+      animation: fadeUp 0.9s var(--ease) 0.5s both;
+    }
+
+    .hero-sub {
+      font-family: var(--ff-b); font-size: 0.72rem; font-weight: 300;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); margin-bottom: 44px;
+      animation: fadeUp 0.9s var(--ease) 0.65s both;
+    }
+
+    .btn-get-started {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--ff-b); font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--deep); background: var(--white);
+      padding: 14px 38px; border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      margin-bottom: 44px;
+      animation: fadeUp 0.9s var(--ease) 0.78s both;
+    }
+    .btn-get-started:hover {
+      background: var(--cream); transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.5); color: var(--deep);
+    }
+
+    /* Social icons */
+    .social-row {
+      display: flex; gap: 12px;
+      animation: fadeUp 0.9s var(--ease) 0.9s both;
+    }
+    .soc-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      border: 1.5px solid rgba(255,255,255,0.28);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.88); font-size: 0.88rem;
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    }
+    .soc-btn:hover {
+      background: rgba(255,255,255,0.26);
+      border-color: rgba(255,255,255,0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Slide dots */
+    .slide-dots {
+      position: absolute; bottom: 36px; right: 52px;
+      display: flex; gap: 10px; z-index: 10;
+      animation: fadeIn 1s var(--ease) 1.1s both;
+    }
+    .dot {
+      height: 6px; width: 24px; border-radius: 3px;
+      background: rgba(255,255,255,0.28); cursor: pointer;
+      transition: background 0.3s, width 0.4s var(--ease);
+    }
+    .dot.active { background: var(--white); width: 40px; }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.3); z-index: 10;
+      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+      animation: fadeIn 1s var(--ease) 1.3s both;
+    }
+    .scroll-line {
+      width: 1px; height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50%      { opacity: 0.15; transform: scaleY(0.5); }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 860px) {
+      body { overflow: auto; }
+      .page-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+      }
+      .left-panel { padding: 32px 28px; }
+      .left-panel::after { display: none; }
+      .right-panel { height: 100vh; min-height: 560px; }
+      .nav-links { display: none; }
+      .nav-sep   { display: none; }
+      .menu-btn-r { display: flex; align-items: center; justify-content: center; }
+      .hero-title { font-size: clamp(3.2rem, 12vw, 5.5rem); }
+      .right-content { padding: 84px 28px 72px; }
+      .slide-dots { right: 28px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 3rem; }
+      .btn-get-started { padding: 12px 28px; font-size: 0.72rem; }
+      .top-nav { padding: 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ════════ LEFT PANEL ════════ -->
+  <aside class="left-panel">
+
+    <a href="home.html" class="brand">
+      <div class="brand-emblem">🌿</div>
+      <div>
+        <span class="brand-name">Roots &amp; Revelry</span>
+        <span class="brand-sub">Your Nature Is Here</span>
+      </div>
+    </a>
+
+    <div class="left-quote">
+      <span class="opening-mark">"</span>
+      <h1>
+        Trees Where<br>
+        You Find<br>
+        <em>Your Peace</em>
+      </h1>
+      <p class="left-body">
+        At Roots and Revelry, every tree is a story of growth, renewal, and hope.
+        We bring sustainably sourced trees, expert care guides, and a community
+        passion for greener spaces right to your doorstep. Whether you are planting
+        your first tree or transforming a landscape, we grow with you — every step.
+      </p>
+
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input class="search-input" type="text" placeholder="Search trees, guides…" />
+      </div>
+
+      <p class="left-tagline">
+        Rooted in nature. Growing with purpose.<br>
+        Discover our premium nursery collection today.
+      </p>
+    </div>
+
+  </aside>
+
+  <!-- ════════ RIGHT PHOTO PANEL ════════ -->
+  <main class="right-panel">
+
+    <div class="forest-bg" id="forestBg"></div>
+    <div class="forest-overlay"></div>
+
+    <!-- Navbar floating over photo -->
+    <nav class="top-nav">
+      <div class="nav-links" id="navLinks">
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="nav-sep"></div>
+      <a href="contact.html" class="btn-login">Log In</a>
+      <a href="about-us.html" class="btn-signup">Sign Up</a>
+      <button class="menu-btn-r" id="menuBtn" aria-label="Menu">☰</button>
+    </nav>
+
+    <!-- Hero content -->
+    <div class="right-content">
+      <span class="hero-eyebrow">Rooted in Nature · Est. 2026</span>
+      <h2 class="hero-title">Nature<br>&amp; Trees</h2>
+      <p class="hero-sub">Explore The Beauty of Nature With Us</p>
+      <a href="home.html" class="btn-get-started">Get Started</a>
+
+      <div class="social-row">
+        <a href="https://www.instagram.com" target="_blank" class="soc-btn" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="soc-btn" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.pinterest.com" target="_blank" class="soc-btn" aria-label="Pinterest">
+          <i class="fa-brands fa-pinterest-p"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" class="soc-btn" aria-label="Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide dots -->
+    <div class="slide-dots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Background slideshow ── */
+  const slides = [
+    'https://i1-c.pinimg.com/736x/72/16/99/721699a842eca7ffbb64ac536b7427a6.jpg',
+    'https://i1-c.pinimg.com/736x/6f/65/79/6f6579934e75e9f7e6ea15bd077b510f.jpg',
+    'https://i1-c.pinimg.com/736x/fd/4c/dd/fd4cdd07dee3cdfbc8ca90beb4188949.jpg',
+    'https://i1-c.pinimg.com/736x/66/fe/18/66fe184938ffbf0ce5c5bef49223aba2.jpg',
+  ];
+  const bg    = document.getElementById('forestBg');
+  const dots  = document.querySelectorAll('.dot');
+  let current = 0;
+  let timer;
+
+  // Preload images
+  slides.forEach(src => { const img = new Image(); img.src = src; });
+
+  // Set initial
+  bg.style.backgroundImage = `url('${slides[0]}')`;
+  bg.style.backgroundSize = 'cover';
+  bg.style.backgroundPosition = 'center';
+
+  function goTo(i) {
+    current = (i + slides.length) % slides.length;
+    bg.style.opacity = '0';
+    bg.style.transition = 'opacity 0.7s ease';
+    setTimeout(() => {
+      bg.style.backgroundImage = `url('${slides[current]}')`;
+      bg.style.opacity = '1';
+    }, 350);
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+  }
+
+  dots.forEach(d => d.addEventListener('click', () => {
+    goTo(+d.dataset.index);
+    clearInterval(timer); startTimer();
+  }));
+
+  function startTimer() { timer = setInterval(() => goTo(current + 1), 5500); }
+  startTimer();
+
+  /* ── Mobile nav toggle ── */
+  const menuBtn  = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      if (isOpen) {
+        navLinks.style.display = 'none';
+      } else {
+        Object.assign(navLinks.style, {
+          display: 'flex', flexDirection: 'column',
+          position: 'absolute', top: '64px', right: '20px',
+          background: 'rgba(26,46,26,0.97)', padding: '14px 20px',
+          borderRadius: '8px', zIndex: '100', gap: '4px',
+        });
+      }
+    });
+    document.addEventListener('click', e => {
+      if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>
