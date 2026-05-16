@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roots &amp; Revelry | About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn more about Roots &amp; Revelry and our mission." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+  <style>
+    /* ══════════════════════════════════════
+       ABOUT PAGE — INLINE STYLES
+       Matches reference layout precisely
+    ══════════════════════════════════════ */
+
+    :root {
+      --bark:    #1e1e1e;
+      --soil:    #2c2c2c;
+      --moss:    #4a5e3a;
+      --sage:    #6b8f52;
+      --leaf:    #8ab866;
+      --gold:    #c9a84c;
+      --gold-lt: #e8c97a;
+      --cream:   #f5f0e8;
+      --white:   #ffffff;
+      --light-bg:#f8f7f4;
+      --border:  #e2ddd5;
+      --text:    #333333;
+      --muted:   #777777;
+      --ff-d:    'Playfair Display', Georgia, serif;
+      --ff-b:    'Jost', sans-serif;
+      --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-b);
+      color: var(--text);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ── NAVBAR (reuses style.css base, patched for light page) ── */
+    .navbar {
+      position: sticky;
+      top: 0; z-index: 1000;
+      background: var(--bark);
+      height: 64px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 0 28px;
+    }
+    .logo {
+      font-family: var(--ff-d);
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--gold-lt);
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+    }
+    .logo::before, .logo::after { content: '🌿'; font-size: 1rem; }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,240,232,0.82);
+      padding: 6px 12px; border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-lt); }
+
+    /* Explore / CTA button in nav */
+    .nav-cta {
+      background: var(--sage);
+      color: var(--white) !important;
+      border-radius: 4px;
+      padding: 8px 18px !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+    .nav-cta:hover { background: var(--leaf) !important; color: var(--bark) !important; }
+
+    .menu-btn {
+      display: none; background: none;
+      border: 1.5px solid rgba(245,240,232,0.35);
+      color: var(--cream); font-size: 1.1rem;
+      width: 38px; height: 38px;
+      border-radius: 5px; cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .menu-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       1. HERO 
+    ══════════════════════════════════════ */
+    .about-hero {
+      background:
+        linear-gradient(to right, rgba(20,20,20,0.82) 45%, rgba(20,20,20,0.50) 100%),
+        url('https://i1-c.pinimg.com/736x/fd/4c/dd/fd4cdd07dee3cdfbc8ca90beb4188949.jpg') center/cover no-repeat;
+      min-height: 480px;
+      display: flex; align-items: center;
+      padding: 80px 0 60px;
+      position: relative;
+    }
+
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 380px; gap: 56px;
+      align-items: center; width: 100%;
+    }
+
+    .hero-text .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--leaf); margin-bottom: 16px;
+    }
+    .hero-text h1 {
+      font-family: var(--ff-d); font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.15; margin-bottom: 18px;
+    }
+    .hero-text h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-text p {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.75;
+      color: rgba(245,240,232,0.78); margin-bottom: 28px; max-width: 480px;
+    }
+    .hero-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--bark);
+      background: var(--gold); padding: 14px 32px; border-radius: 3px;
+      border: none; cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 6px 24px rgba(201,168,76,0.4);
+    }
+    .hero-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* Contact form card in hero */
+    .hero-form-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 8px; padding: 32px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .hero-form-card h3 {
+      font-family: var(--ff-d); font-size: 1.25rem; font-weight: 700;
+      color: var(--bark); margin-bottom: 20px; text-align: center;
+    }
+    .form-field {
+      width: 100%; border: 1.5px solid var(--border);
+      border-radius: 4px; padding: 11px 14px;
+      font-family: var(--ff-b); font-size: 0.88rem; color: var(--text);
+      background: #fafafa; margin-bottom: 12px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+    }
+    .form-field:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(107,143,82,0.12); }
+    textarea.form-field { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; padding: 13px;
+      font-family: var(--ff-b); font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white); background: var(--sage);
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .form-submit:hover { background: var(--moss); transform: translateY(-1px); }
+
+    /* ══════════════════════════════════════
+       2. THREE-COLUMN FEATURE CARDS
+    ══════════════════════════════════════ */
+    .features-section {
+      background: var(--light-bg);
+      padding: 72px 0 64px;
+    }
+    .features-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+
+    /* First card — dark accent card matching reference */
+    .feat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px 28px;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .feat-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+    .feat-card.dark {
+      background: var(--bark); color: var(--white); border-color: var(--bark);
+    }
+
+    .feat-card h3 {
+      font-family: var(--ff-d); font-size: 1.2rem; font-weight: 700;
+      color: var(--bark); margin-bottom: 12px;
+    }
+    .feat-card.dark h3 { color: var(--white); }
+    .feat-card > p {
+      font-size: 0.88rem; line-height: 1.72; color: var(--muted); margin-bottom: 20px;
+    }
+    .feat-card.dark > p { color: rgba(245,240,232,0.72); }
+
+    .feat-sub-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 0; border-top: 1px solid var(--border);
+    }
+    .feat-card.dark .feat-sub-item { border-top-color: rgba(255,255,255,0.1); }
+    .feat-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(107,143,82,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+      color: var(--sage);
+    }
+    .feat-card.dark .feat-icon { background: rgba(255,255,255,0.1); color: var(--leaf); }
+    .feat-sub-item h4 { font-size: 0.88rem; font-weight: 600; color: var(--bark); margin-bottom: 3px; }
+    .feat-card.dark .feat-sub-item h4 { color: var(--white); }
+    .feat-sub-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .feat-card.dark .feat-sub-item p { color: rgba(245,240,232,0.6); }
+
+    /* ══════════════════════════════════════
+       3. WHO WE ARE — text + image side by side
+    ══════════════════════════════════════ */
+    .about-split {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .split-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center;
+    }
+    .split-inner.reverse { direction: rtl; }
+    .split-inner.reverse > * { direction: ltr; }
+
+    .split-text .section-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 10px;
+    }
+    .split-text h2 {
+      font-family: var(--ff-d); font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700; color: var(--bark); line-height: 1.2; margin-bottom: 18px;
+    }
+    .split-text p {
+      font-size: 0.93rem; line-height: 1.8; color: #555; margin-bottom: 14px;
+    }
+    .split-text p:last-of-type { margin-bottom: 28px; }
+
+    .split-img {
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+      position: relative;
+    }
+    .split-img img {
+      width: 100%; height: 380px; object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .split-img:hover img { transform: scale(1.04); }
+
+    /* Badge overlay on image */
+    .img-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: var(--sage); color: var(--white);
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.08em; padding: 8px 16px;
+      border-radius: 4px; display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ══════════════════════════════════════
+       4. CORE VALUES — 4-card grid
+    ══════════════════════════════════════ */
+    .values-section {
+      background: var(--light-bg); padding: 72px 0;
+    }
+    .section-header {
+      text-align: center; margin-bottom: 48px;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+      padding: 0 24px;
+    }
+    .section-header .tag {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--sage);
+      display: block; margin-bottom: 8px;
+    }
+    .section-header h2 {
+      font-family: var(--ff-d); font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--bark); margin-bottom: 12px;
+    }
+    .section-header p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
+    .values-grid {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+    .val-card {
+      background: var(--white); border-radius: 8px; padding: 28px 22px;
+      border: 1px solid var(--border); text-align: center;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s, border-color 0.3s;
+    }
+    .val-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+      border-color: var(--sage);
+    }
+    .val-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(107,143,82,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin: 0 auto 16px;
+      transition: background 0.3s;
+    }
+    .val-card:hover .val-icon { background: var(--sage); }
+    .val-card h3 { font-family: var(--ff-d); font-size: 1.05rem; font-weight: 700; color: var(--bark); margin-bottom: 10px; }
+    .val-card p  { font-size: 0.84rem; line-height: 1.7; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       5. TEAM SECTION — 4-column cards
+    ══════════════════════════════════════ */
+    .team-section { background: var(--white); padding: 72px 0; }
+    .team-grid {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .team-card {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+      background: var(--white);
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.12); }
+    .team-img {
+      height: 200px; background-size: cover; background-position: center;
+      position: relative;
+    }
+    .team-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(30,30,30,0.5) 100%);
+    }
+    .team-body { padding: 20px 18px; }
+    .team-role {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sage); font-weight: 500; margin-bottom: 5px;
+    }
+    .team-body h3 { font-family: var(--ff-d); font-size: 1rem; font-weight: 700; color: var(--bark); margin-bottom: 8px; }
+    .team-body p  { font-size: 0.82rem; line-height: 1.65; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       6. PARTNERS — 3-column cards
+    ══════════════════════════════════════ */
+    .partners-section { background: var(--light-bg); padding: 72px 0; }
+    .partners-grid {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .partner-card {
+      background: var(--white); border-radius: 8px; padding: 28px 24px;
+      border: 1px solid var(--border);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .partner-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.09); }
+    .partner-icon {
+      font-size: 2rem; margin-bottom: 14px; display: block;
+    }
+    .partner-card h3 { font-family: var(--ff-d); font-size: 1rem; font-weight: 700; color: var(--bark); margin-bottom: 10px; }
+    .partner-card p  { font-size: 0.85rem; line-height: 1.72; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       7. DARK CTA STRIP — matches reference
+    ══════════════════════════════════════ */
+    .cta-strip {
+      background: var(--bark);
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+    .cta-strip .tag { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--leaf); display: block; margin-bottom: 12px; }
+    .cta-strip h2 {
+      font-family: var(--ff-d); font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--white); margin-bottom: 8px;
+    }
+    .cta-strip h2 span { color: var(--gold-lt); font-style: italic; }
+    .cta-strip .sub { font-size: 0.9rem; color: rgba(245,240,232,0.6); margin-bottom: 48px; letter-spacing: 0.08em; }
+
+    .cta-cards {
+      max-width: 900px; margin: 0 auto 48px; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .cta-card {
+      text-align: center; padding: 24px 16px;
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .cta-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(201,168,76,0.3); }
+    .cta-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .cta-card h4 { font-family: var(--ff-d); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .cta-card p  { font-size: 0.8rem; line-height: 1.65; color: rgba(245,240,232,0.55); }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--bark);
+      background: var(--gold); padding: 15px 36px; border-radius: 3px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+    }
+    .cta-btn:hover { background: var(--gold-lt); transform: translateY(-2px); color: var(--bark); }
+
+    /* ══════════════════════════════════════
+       8. FOOTER — multi-column matching reference
+    ══════════════════════════════════════ */
+    footer.site-footer {
+      background: var(--moss);
+      padding: 56px 0 0;
+      color: rgba(245,240,232,0.8);
+      margin-top: auto;
+    }
+    .footer-top {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px 48px;
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer-brand .foot-logo {
+      font-family: var(--ff-d); font-size: 1.3rem; font-weight: 700;
+      color: var(--gold-lt); display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+    }
+    .footer-brand p { font-size: 0.83rem; line-height: 1.75; color: rgba(245,240,232,0.62); margin-bottom: 20px; }
+    .foot-social { display: flex; gap: 10px; }
+    .foot-social a {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: rgba(245,240,232,0.8);
+      transition: background 0.3s, color 0.3s;
+    }
+    .foot-social a:hover { background: var(--gold); color: var(--bark); border-color: var(--gold); }
+
+    .footer-col h4 {
+      font-family: var(--ff-d); font-size: 0.95rem; font-weight: 700;
+      color: var(--white); margin-bottom: 18px;
+      padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a {
+      font-size: 0.83rem; color: rgba(245,240,232,0.62);
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .footer-col ul li a::before { content: '›'; color: var(--leaf); font-size: 1rem; }
+    .footer-col ul li a:hover { color: var(--gold-lt); }
+
+    .footer-bottom {
+      max-width: 1160px; margin: 0 auto; padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(245,240,232,0.45); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.78rem; color: rgba(245,240,232,0.45); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--gold-lt); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 992px) {
+      .hero-inner       { grid-template-columns: 1fr; }
+      .hero-form-card   { max-width: 480px; }
+      .features-inner   { grid-template-columns: 1fr 1fr; }
+      .values-grid      { grid-template-columns: repeat(2, 1fr); }
+      .team-grid        { grid-template-columns: repeat(2, 1fr); }
+      .partners-grid    { grid-template-columns: 1fr 1fr; }
+      .cta-cards        { grid-template-columns: 1fr 1fr; }
+      .footer-top       { grid-template-columns: 1fr 1fr; }
+      .split-inner      { grid-template-columns: 1fr; }
+      .split-inner.reverse { direction: ltr; }
+    }
+    @media (max-width: 640px) {
+      .features-inner   { grid-template-columns: 1fr; }
+      .values-grid      { grid-template-columns: 1fr 1fr; }
+      .team-grid        { grid-template-columns: 1fr 1fr; }
+      .partners-grid    { grid-template-columns: 1fr; }
+      .cta-cards        { grid-template-columns: 1fr; }
+      .footer-top       { grid-template-columns: 1fr; }
+      .menu-btn         { display: flex; align-items: center; justify-content: center; }
+      .nav-links        {
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: rgba(30,30,30,0.97); backdrop-filter: blur(12px);
+        flex-direction: column; gap: 0; padding: 12px 0 20px;
+        transform: translateY(-110%); opacity: 0;
+        transition: transform 0.4s, opacity 0.4s;
+      }
+      .nav-links.open   { transform: translateY(0); opacity: 1; }
+      .nav-links a      { padding: 11px 28px; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="home.html" class="logo">Roots &amp; Revelry</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Welcome</a>
+      <a href="home.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="care-guides.html">Care Guides</a>
+      <a href="contact.html">Contact</a>
+      <a href="news.html">News</a>
+      <a href="by-categories.html">Category</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html" class="nav-cta">Explore Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ 1. HERO ═══════════ -->
+<section class="about-hero">
+  <div class="hero-inner">
+
+    <!-- Left: text -->
+    <div class="hero-text">
+      <p class="eyebrow">Rooted in Nature · Est. 2026</p>
+      <h1>Your <em>Landscaping</em><br>Dreams, Realised</h1>
+      <p>
+        We are a nature-focused nursery dedicated to sustainable tree planting,
+        eco-friendly landscaping, and environmental education — building greener
+        communities one tree at a time.
+      </p>
+      <a href="contact.html" class="hero-btn">Get in Touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 2. FEATURE CARDS ═══════════ -->
+<section class="features-section">
+  <div class="features-inner">
+
+    <!-- Card 1 — dark -->
+    <div class="feat-card dark">
+      <h3>Your Landscaping Dreams</h3>
+      <p>Expert guidance from planting to flourishing landscapes. We bring your outdoor vision to life with purpose and care.</p>
+      <div class="feat-sub-item">
+        <span class="feat-icon"></span>
+        <div>
+          <h4> Image Gallery</h4>
+          <p>Browse our portfolio of completed projects, seasonal transformations, and tree collections.</p>
+        </div>
+      </div>
+      <div class="feat-sub-item">
+        <span class="feat-icon"></span>
+        <div>
+          <h4> Image Gallery</h4>
+          <p>View our gallery beautifully on any device — desktop, tablet, or mobile.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — light -->
+    <div class="feat-card">
+      <h3>Service Cards</h3>
+      <p>From tree supply to full landscape consultations, our services are designed around your needs and the environment's wellbeing.</p>
+      <div class="feat-sub-item">
+        <span class="feat-icon">✅</span>
+        <div>
+          <h4>Tree Supply &amp; Nursery</h4>
+          <p>High-quality evergreen, deciduous, fruit, and ornamental trees selected for health and sustainability.</p>
+        </div>
+      </div>
+      <div class="feat-sub-item">
+        <span class="feat-icon">✅</span>
+        <div>
+          <h4>Landscape Consulting</h4>
+          <p>Expert advice on tree selection, planting plans, and eco-friendly design.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — light -->
+    <div class="feat-card">
+      <h3>Testimonials</h3>
+      <p>Hear from our community — families, schools, and organisations who have grown with Roots &amp; Revelry.</p>
+      <div class="feat-sub-item">
+        <span class="feat-icon">✅</span>
+        <div>
+          <h4>Testimonials Grid</h4>
+          <p>"Roots &amp; Revelry transformed our school garden into a thriving green space. Incredible team!"</p>
+        </div>
+      </div>
+      <div class="feat-sub-item">
+        <span class="feat-icon">✅</span>
+        <div>
+          <h4>Community Reviews</h4>
+          <p>"The care guides and expert advice made planting our first trees a joy rather than a challenge."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ 3. WHO WE ARE ═══════════ -->
+<section class="about-split">
+  <div class="split-inner">
+    <div class="split-text">
+      <span class="section-tag">Our Story</span>
+      <h2>Who We Are</h2>
+      <p>
+        Roots and Revelry is a nature-focused nursery and environmental initiative
+        dedicated to sustainable tree planting, eco-friendly landscaping, and environmental education.
+      </p>
+      <p>
+        Founded with a passion for restoring green spaces, we believe that
+        strong roots build strong communities. Every tree we grow and every
+        project we support reflects our commitment to long-term environmental care.
+      </p>
+      <a href="contact.html" class="hero-btn" style="font-size:0.78rem; padding:12px 26px;">
+        Learn More →
+      </a>
+    </div>
+    <div class="split-img">
+      <img src="https://www.leaflimb.com/assets/posts/saplings_banner.jpg" alt="Community gardening together" />
+      <span class="img-badge"> Growing Since 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 4. OUR MISSION ═══════════ -->
+<section class="about-split" style="background: var(--light-bg, #f8f7f4); padding: 72px 0;">
+  <div class="split-inner reverse">
+    <div class="split-text">
+      <span class="section-tag">Purpose</span>
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to inspire environmental responsibility by creating greener spaces,
+        educating communities, and celebrating the beauty of nature.
+      </p>
+      <p>
+        Through responsible sourcing, expert care guidance, and community partnerships,
+        we aim to make sustainable living accessible to everyone.
+      </p>
+      <a href="care-guides.html" class="hero-btn" style="font-size:0.78rem; padding:12px 26px;">
+        Care Guides →
+      </a>
+    </div>
+    <div class="split-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ECtrJRWJmIHjO7he7AxY43r0MND1D14MUQ&s" alt="Community partnership and planting" />
+      <span class="img-badge"> Sustainable Living</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 5. CORE VALUES ═══════════ -->
+<section class="values-section">
+  <div class="section-header">
+    <span class="tag">What We Stand For</span>
+    <h2>Our Core Values</h2>
+    <p>Four principles guide everything we do — from how we grow trees to how we work with communities.</p>
+  </div>
+  <div class="values-grid">
+    <div class="val-card">
+      <div class="val-icon"></div>
+      <h3>Sustainability</h3>
+      <p>We promote environmentally responsible practices in all our operations and projects.</p>
+    </div>
+    <div class="val-card">
+      <div class="val-icon"></div>
+      <h3>Community</h3>
+      <p>We work closely with local communities to create meaningful, lasting green impact.</p>
+    </div>
+    <div class="val-card">
+      <div class="val-icon"></div>
+      <h3>Education</h3>
+      <p>We provide knowledge and practical tools to help people confidently care for trees.</p>
+    </div>
+    <div class="val-card">
+      <div class="val-icon"></div>
+      <h3>Quality</h3>
+      <p>We are committed to offering healthy, well-grown trees and reliable support to our customers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 6. TEAM ═══════════ -->
+<section class="team-section">
+  <div class="section-header">
+    <span class="tag">The People Behind The Trees</span>
+    <h2>Meet Our Team</h2>
+    <p>Passionate experts united by a love of nature and community.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-img" style="background-image:url('https://i1-c.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')"></div>
+      <div class="team-body">
+        <p class="team-role">Founder &amp; Director</p>
+        <h3>Miss Netefatso Bontsibokae</h3>
+        <p>Leads the vision of Roots and Revelry, guiding sustainability efforts, partnerships, and long-term community impact.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background-image:url('https://i1-c.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')"></div>
+      <div class="team-body">
+        <p class="team-role">Nursery Specialist</p>
+        <h3>Mr Moitumedi Bontsibokae</h3>
+        <p>Oversees tree health, plant care, and sustainable nursery practices to ensure quality growth and healthy stock.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background-image:url('https://i1-c.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')"></div>
+      <div class="team-body">
+        <p class="team-role">Outreach Coordinator</p>
+        <h3>Miss Hope Motlhalenyane</h3>
+        <p>Organizes environmental events, volunteer activities, and community education programs across the region.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background-image:url('https://i1-c.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')"></div>
+      <div class="team-body">
+        <p class="team-role">Landscape Consultant</p>
+        <h3>Mr Katlego Mopati Ntswelebe</h3>
+        <p>Provides expert advice on tree selection, planting plans, and eco-friendly landscaping solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 7. PARTNERS ═══════════ -->
+<section class="partners-section">
+  <div class="section-header">
+    <span class="tag">Working Together</span>
+    <h2>Our Partners</h2>
+    <p>We collaborate with community, educational, and environmental organisations to multiply our impact.</p>
+  </div>
+  <div class="partners-grid">
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Community Partners</h3>
+      <p>Schools, environmental clubs, local councils, and non-profits support our sustainable tree planting and awareness initiatives.</p>
+    </div>
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Educational Partners</h3>
+      <p>Workshops, learning resources, and practical training for students, families, and community volunteers.</p>
+    </div>
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Environmental Partners</h3>
+      <p>Conservation groups and green initiatives strengthen our shared commitment to biodiversity and long-term care.</p>
+    </div>
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Green Investment</h3>
+      <p>Financial partners fund community greening projects, nursery development, and environmental outreach programmes.</p>
+    </div>
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Corporate Sponsors</h3>
+      <p>CSR sponsorships from businesses support tree planting campaigns and green community projects.</p>
+    </div>
+    <div class="partner-card">
+      <span class="partner-icon"></span>
+      <h3>Grants &amp; Donations</h3>
+      <p>Grants and donations from supportive institutions allow us to expand our reach to more communities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 8. DARK CTA STRIP ═══════════ -->
+<section class="cta-strip">
+  <span class="tag">Ready to Grow?</span>
+  <h2>Contact Us — <span>Your Trees Have Landed</span></h2>
+  <p class="sub">Get in touch today and let us help you grow something beautiful.</p>
+
+  <div class="cta-cards">
+    <div class="cta-card">
+      <span class="cta-card-icon"></span>
+      <h4>Exclusive Details</h4>
+      <p>Reach us directly for customised tree orders, landscaping quotes, and project planning support.</p>
+    </div>
+    <div class="cta-card">
+      <span class="cta-card-icon"></span>
+      <h4>Find &amp; Visit</h4>
+      <p>Visit our nursery to browse our full tree collection and speak with our specialists in person.</p>
+    </div>
+    <div class="cta-card">
+      <span class="cta-card-icon"></span>
+      <h4>Customer Query</h4>
+      <p>Have a question about care guides, planting tips, or upcoming community events? We are here.</p>
+    </div>
+  </div>
+
+  <a href="contact.html" class="cta-btn">Contact Us Today →</a>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+
+    <div class="footer-brand">
+      <a href="home.html" class="foot-logo">🌿 Roots &amp; Revelry</a>
+      <p>A nature-focused nursery and environmental initiative dedicated to sustainable tree planting, eco-friendly landscaping, and building greener communities.</p>
+      <div class="foot-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">in</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Address</a></li>
+        <li><a href="#">Telephone</a></li>
+        <li><a href="#">Business Hours</a></li>
+        <li><a href="contact.html">Send a Message</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Roots &amp; Revelry. All Rights Reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    document.addEventListener('click', e => {
+      if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        menuBtn.textContent = '☰';
+      }
+    });
+  }
+</script>
+</body>
+</html>
